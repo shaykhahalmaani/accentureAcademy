@@ -1,16 +1,13 @@
 import streamlit as st
+import random
 
 st.set_page_config(page_title="Vote Shaykhah – Let’s Make This Journey Better", layout="centered")
 
-# ----- Force Light Mode Styling -----
+# ----- Custom Styling -----
 st.markdown("""
     <style>
-        body, .main, .block-container {
-            background-color: white !important;
-            color: black !important;
-        }
-        header, .st-emotion-cache-1avcm0n {
-            background-color: white !important;
+        body {
+            font-family: 'Segoe UI', sans-serif;
         }
         h1, h2 {
             color: #A100FF;
@@ -24,12 +21,26 @@ st.markdown("""
         }
         .stButton>button:hover {
             background-color: #7a00cc;
-            color: white;
         }
-        .stRadio > div {
-            background-color: #f7f5fa;
-            padding: 0.5rem;
-            border-radius: 10px;
+        .extracurricular-grid {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        .extracurricular-item {
+            width: 250px;
+            text-align: center;
+        }
+        .extracurricular-item img {
+            width: 100%;
+            border-radius: 8px;
+        }
+        .extracurricular-item a {
+            text-decoration: none;
+            font-size: 0.9rem;
+            color: #A100FF;
         }
     </style>
 """, unsafe_allow_html=True)
@@ -41,8 +52,8 @@ st.markdown("---")
 
 # ----- INTRO -----
 st.header("👋 Hi, I’m Shaykhah")
-
 col1, col2 = st.columns([2, 1])
+
 with col1:
     st.markdown("""
 Hi! I’m Shaykhah — a Cloud Technology Associate with a strong background in AI, student leadership, and real-world projects.
@@ -62,40 +73,32 @@ st.markdown("""
 """, unsafe_allow_html=True)
 st.markdown("---")
 
-# ----- EXTRACURRICULARS SECTION -----
+# ----- EXTRACURRICULARS -----
 st.header("🪩 What I’ve Been Involved In")
+st.markdown("""
+<div class="extracurricular-grid">
+    <div class="extracurricular-item">
+        <img src="technation.jpeg" alt="Technation">
+        <p><strong>Technation – President</strong></p>
+        <p>Led 19+ events, workshops, and a hackathon</p>
+        <a href="https://www.linkedin.com/company/technation-clubb/" target="_blank">🔗 Technation on LinkedIn</a>
+    </div>
+    <div class="extracurricular-item">
+        <img src="tuwaiq.jpg" alt="Tuwaiq Academy">
+        <p><strong>Tuwaiq Academy – TA</strong></p>
+        <p>Mentored 25+ trainees through AI projects</p>
+        <a href="https://www.linkedin.com/school/tuwaiqacademy/" target="_blank">🔗 Tuwaiq Academy</a>
+    </div>
+    <div class="extracurricular-item">
+        <img src="GDSC.png" alt="GDSC">
+        <p><strong>GDSC – Co-lead</strong></p>
+        <p>Helped run 10+ university-wide tech events</p>
+        <a href="https://www.linkedin.com/company/gdsc-imamu/" target="_blank">🔗 GDSC ImamU</a>
+    </div>
+</div>
+""", unsafe_allow_html=True)
 
-# Create a "matrix-style" aligned layout
-cols = st.columns(3)
-
-activities = [
-    {
-        "image": "technation.jpeg",
-        "caption": "Technation – President",
-        "description": "*Led 19+ events, workshops, and a hackathon*",
-        "link": "[🔗 Technation on LinkedIn](https://www.linkedin.com/company/technation-clubb/)"
-    },
-    {
-        "image": "tuwaiq.jpg",
-        "caption": "Tuwaiq Academy – TA",
-        "description": "*Mentored 25+ trainees through AI projects*",
-        "link": "[🔗 Tuwaiq Academy](https://www.linkedin.com/school/tuwaiqacademy/)"
-    },
-    {
-        "image": "GDSC.png",
-        "caption": "GDSC – Co-lead",
-        "description": "*Helped run 10+ university-wide tech events*",
-        "link": "[🔗 GDSC ImamU](https://www.linkedin.com/company/gdsc-imamu/)"
-    }
-]
-
-for col, act in zip(cols, activities):
-    with col:
-        st.image(act["image"], caption=act["caption"], use_column_width=True)
-        st.markdown(act["description"])
-        st.markdown(act["link"])
-
-# ----- IDEAS SECTION -----
+# ----- IDEAS -----
 st.markdown("---")
 st.header("🎯 What I’d Love to Bring to Council")
 
@@ -128,7 +131,7 @@ I’d love to bring meaning into our moments — with light activities tied to g
 Simple actions, big collective impact.
 """)
 
-# ----- BADGE UNLOCK -----
+# ----- BADGE -----
 st.markdown("---")
 st.header("🏅 Supporter Badge")
 
@@ -136,6 +139,7 @@ if st.button("🎖️ Unlock Your Badge"):
     st.balloons()
     st.success("You just earned the 💡 I Voted Shaykhah badge!")
     st.image("badge.png", caption="🗳️ Show your support!", use_container_width=False)
+
     with open("badge.png", "rb") as file:
         st.download_button(
             label="⬇️ Download Your Badge",
@@ -157,6 +161,7 @@ with col2:
 
 # ----- FOOTER -----
 st.markdown("""---  
-Made with 💜 by [Shaykhah Almaani](https://www.linkedin.com/in/shaykha-almaani/)  
+Made with 💜 by [Shaykhah Almaani](https://www.linkedin.com/in/shaykha-almaani/)
 """)
+
 
