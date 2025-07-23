@@ -75,28 +75,25 @@ st.markdown("---")
 
 # ----- EXTRACURRICULARS -----
 st.header("🪩 What I’ve Been Involved In")
-st.markdown("""
-<div class="extracurricular-grid">
-    <div class="extracurricular-item">
-        <img src="technation.jpeg" alt="Technation">
-        <p><strong>Technation – President</strong></p>
-        <p>Led 19+ events, workshops, and a hackathon</p>
-        <a href="https://www.linkedin.com/company/technation-clubb/" target="_blank">🔗 Technation on LinkedIn</a>
-    </div>
-    <div class="extracurricular-item">
-        <img src="tuwaiq.jpg" alt="Tuwaiq Academy">
-        <p><strong>Tuwaiq Academy – TA</strong></p>
-        <p>Mentored 25+ trainees through AI projects</p>
-        <a href="https://www.linkedin.com/school/tuwaiqacademy/" target="_blank">🔗 Tuwaiq Academy</a>
-    </div>
-    <div class="extracurricular-item">
-        <img src="GDSC.png" alt="GDSC">
-        <p><strong>GDSC – Co-lead</strong></p>
-        <p>Helped run 10+ university-wide tech events</p>
-        <a href="https://www.linkedin.com/company/gdsc-imamu/" target="_blank">🔗 GDSC ImamU</a>
-    </div>
-</div>
-""", unsafe_allow_html=True)
+cols = st.columns(3)
+
+with cols[0]:
+    st.image("technation.jpeg", caption=None, use_container_width=True)
+    st.markdown("**Technation – President**", unsafe_allow_html=True)
+    st.markdown("Led 19+ events, workshops, and a hackathon")
+    st.markdown('[🔗 Technation on LinkedIn](https://www.linkedin.com/company/technation-clubb/)')
+
+with cols[1]:
+    st.image("tuwaiq.jpg", caption=None, use_container_width=True)
+    st.markdown("**Tuwaiq Academy – TA**", unsafe_allow_html=True)
+    st.markdown("Mentored 25+ trainees through AI projects")
+    st.markdown('[🔗 Tuwaiq Academy](https://www.linkedin.com/school/tuwaiqacademy/)')
+
+with cols[2]:
+    st.image("GDSC.png", caption=None, use_container_width=True)
+    st.markdown("**GDSC – Co-lead**", unsafe_allow_html=True)
+    st.markdown("Helped run 10+ university-wide tech events")
+    st.markdown('[🔗 GDSC ImamU](https://www.linkedin.com/company/gdsc-imamu/)')
 
 # ----- IDEAS -----
 st.markdown("---")
